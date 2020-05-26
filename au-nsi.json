@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 29,
-  "iteration": 1590479306512,
+  "iteration": 1590479306520,
   "links": [],
   "panels": [
     {
@@ -28,7 +28,7 @@
       "fill": 9,
       "fillGradient": 5,
       "gridPos": {
-        "h": 17,
+        "h": 16,
         "w": 12,
         "x": 0,
         "y": 0
@@ -323,10 +323,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 12,
         "x": 0,
-        "y": 17
+        "y": 16
       },
       "hiddenSeries": false,
       "id": 8,
@@ -373,7 +373,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "HTTP Request sum/count",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -509,9 +509,9 @@
         "allValue": null,
         "current": {
           "tags": [],
-          "text": "200",
+          "text": "All",
           "value": [
-            "200"
+            "$__all"
           ]
         },
         "datasource": "Prometheus",
@@ -524,12 +524,12 @@
         "name": "stc",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "All",
             "value": "$__all"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "200",
             "value": "200"
           },
@@ -559,9 +559,9 @@
         "allValue": null,
         "current": {
           "tags": [],
-          "text": "GET",
+          "text": "All",
           "value": [
-            "GET"
+            "$__all"
           ]
         },
         "datasource": "Prometheus",
@@ -574,12 +574,12 @@
         "name": "mtd",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "All",
             "value": "$__all"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "GET",
             "value": "GET"
           },
@@ -613,11 +613,10 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
           "tags": [],
-          "text": "UPDATE",
+          "text": "All",
           "value": [
-            "UPDATE"
+            "$__all"
           ]
         },
         "datasource": "Prometheus",
@@ -630,7 +629,7 @@
         "name": "type",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "All",
             "value": "$__all"
           },
@@ -670,7 +669,7 @@
             "value": "DELETE"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "UPDATE",
             "value": "UPDATE"
           }
@@ -689,7 +688,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -712,5 +711,5 @@
   "variables": {
     "list": []
   },
-  "version": 2
+  "version": 3
 }
