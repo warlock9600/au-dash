@@ -2,6 +2,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:1415",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -15,7 +16,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 32,
+  "iteration": 1590653307488,
   "links": [],
   "panels": [
     {
@@ -59,7 +60,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(errorCount[5m])",
+          "expr": "rate(errorCount{pod=~\"$pod\"}[5m])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -147,7 +148,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum(rate(time_requests_bucket[1m])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(time_requests_bucket{pod=~\"$pod\"}[1m])) by (le))",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -235,7 +236,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(successCount[1m])",
+          "expr": "rate(successCount{pod=~\"$pod\"}[1m])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -332,13 +333,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "process_resident_memory_bytes{service=\"au-data-quality\"}",
+          "expr": "process_resident_memory_bytes{service=\"au-data-quality\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "resident",
           "refId": "A"
         },
         {
-          "expr": "process_virtual_memory_bytes{service=\"au-data-quality\"}",
+          "expr": "process_virtual_memory_bytes{service=\"au-data-quality\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "virtual",
           "refId": "B"
@@ -427,19 +428,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "go_memstats_alloc_bytes{service=\"au-data-quality\"}",
+          "expr": "go_memstats_alloc_bytes{service=\"au-data-quality\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "bytes allocates",
           "refId": "A"
         },
         {
-          "expr": "go_memstats_stack_inuse_bytes{service=\"au-data-quality\"}",
+          "expr": "go_memstats_stack_inuse_bytes{service=\"au-data-quality\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "stack inuse",
           "refId": "C"
         },
         {
-          "expr": "go_memstats_heap_inuse_bytes{service=\"au-data-quality\"}",
+          "expr": "go_memstats_heap_inuse_bytes{service=\"au-data-quality\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "heap inuse",
           "refId": "D"
@@ -528,7 +529,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(go_gc_duration_seconds{service=\"au-data-quality\"}) by (pod)",
+          "expr": "sum(go_gc_duration_seconds{service=\"au-data-quality\",pod=~\"$pod\"}) by (pod)",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -616,7 +617,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "go_goroutines{service=\"au-data-quality\"}",
+          "expr": "go_goroutines{service=\"au-data-quality\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "resident",
           "refId": "A"
@@ -669,7 +670,57 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "tags": [],
+          "text": "au-data-quality-5d6fd47d84-fzsqr + au-data-quality-67f6454b8c-wdd64",
+          "value": [
+            "au-data-quality-5d6fd47d84-fzsqr",
+            "au-data-quality-67f6454b8c-wdd64"
+          ]
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(errorCount, pod)",
+        "hide": 0,
+        "includeAll": true,
+        "index": -1,
+        "label": "Pod",
+        "multi": true,
+        "name": "pod",
+        "options": [
+          {
+            "$$hashKey": "object:1682",
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "$$hashKey": "object:1683",
+            "selected": true,
+            "text": "au-data-quality-5d6fd47d84-fzsqr",
+            "value": "au-data-quality-5d6fd47d84-fzsqr"
+          },
+          {
+            "$$hashKey": "object:1684",
+            "selected": true,
+            "text": "au-data-quality-67f6454b8c-wdd64",
+            "value": "au-data-quality-67f6454b8c-wdd64"
+          }
+        ],
+        "query": "label_values(errorCount, pod)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-1h",
@@ -695,5 +746,5 @@
   "variables": {
     "list": []
   },
-  "version": 11
+  "version": 1
 }
