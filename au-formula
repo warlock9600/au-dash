@@ -2,6 +2,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:2839",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -14,8 +15,7 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
-  "id": 34,
+  "graphTooltip": 1,
   "links": [],
   "panels": [
     {
@@ -27,7 +27,7 @@
       "fill": 3,
       "fillGradient": 8,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 12,
         "x": 0,
         "y": 0
@@ -59,7 +59,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum(rate(time_getAllMeasurement_bucket[1m])) by (service,le))",
+          "expr": "histogram_quantile(0.95, sum(rate(time_getAllMeasurement_bucket{pod=~\"$pod\"}[1m])) by (service,le))",
           "interval": "",
           "legendFormat": "{{service}}",
           "refId": "A"
@@ -115,7 +115,7 @@
       "fill": 3,
       "fillGradient": 8,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 12,
         "x": 12,
         "y": 0
@@ -153,7 +153,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(CheckRuleCount[1m])",
+          "expr": "rate(CheckRuleCount{pod=~\"$pod\"}[1m])",
           "interval": "",
           "legendFormat": "{{service}}",
           "refId": "A"
@@ -209,10 +209,10 @@
       "fill": 3,
       "fillGradient": 8,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 12,
         "x": 0,
-        "y": 8
+        "y": 7
       },
       "hiddenSeries": false,
       "id": 4,
@@ -241,7 +241,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum(rate(time_testAllFormula_bucket[1m])) by (service,le))",
+          "expr": "histogram_quantile(0.95, sum(rate(time_testAllFormula_bucket{pod=~\"$pod\"}[1m])) by (service,le))",
           "interval": "",
           "legendFormat": "{{service}}",
           "refId": "A"
@@ -297,10 +297,10 @@
       "fill": 3,
       "fillGradient": 8,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 12,
         "x": 12,
-        "y": 8
+        "y": 7
       },
       "hiddenSeries": false,
       "id": 5,
@@ -329,7 +329,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum(rate(time_getSERules_bucket[1m])) by (service,le))",
+          "expr": "histogram_quantile(0.95, sum(rate(time_getSERules_bucket{pod=~\"$pod\"}[1m])) by (service,le))",
           "interval": "",
           "legendFormat": "{{service}}",
           "refId": "A"
@@ -388,7 +388,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 16
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 9,
@@ -426,13 +426,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "process_resident_memory_bytes{service=\"au-formula\"}",
+          "expr": "process_resident_memory_bytes{service=\"au-formula\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "resident by {{pod}}",
           "refId": "A"
         },
         {
-          "expr": "process_virtual_memory_bytes{service=\"au-formula\"}",
+          "expr": "process_virtual_memory_bytes{service=\"au-formula\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "virtual by {{pod}}",
           "refId": "B"
@@ -491,7 +491,7 @@
         "h": 8,
         "w": 6,
         "x": 6,
-        "y": 16
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 11,
@@ -521,19 +521,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "go_memstats_alloc_bytes{service=\"au-formula\"}",
+          "expr": "go_memstats_alloc_bytes{service=\"au-formula\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "bytes allocates",
           "refId": "A"
         },
         {
-          "expr": "go_memstats_stack_inuse_bytes{service=\"au-formula\"}",
+          "expr": "go_memstats_stack_inuse_bytes{service=\"au-formula\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "stack inuse",
           "refId": "C"
         },
         {
-          "expr": "go_memstats_heap_inuse_bytes{service=\"au-formula\"}",
+          "expr": "go_memstats_heap_inuse_bytes{service=\"au-formula\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "heap inuse",
           "refId": "D"
@@ -592,7 +592,7 @@
         "h": 8,
         "w": 6,
         "x": 12,
-        "y": 16
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 15,
@@ -622,7 +622,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(go_gc_duration_seconds{service=\"au-formula\"}) by (pod)",
+          "expr": "sum(go_gc_duration_seconds{service=\"au-formula\",pod=~\"$pod\"}) by (pod)",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -681,7 +681,7 @@
         "h": 8,
         "w": 6,
         "x": 18,
-        "y": 16
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 13,
@@ -710,7 +710,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "go_goroutines{service=\"au-formula\"}",
+          "expr": "go_goroutines{service=\"au-formula\",pod=~\"$pod\"}",
           "interval": "",
           "legendFormat": "routines by {{pod}}",
           "refId": "A"
@@ -763,7 +763,41 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "text": "au-formula-7f4c649696-zx57t",
+          "value": "au-formula-7f4c649696-zx57t"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(CheckRuleCount, pod)",
+        "hide": 0,
+        "includeAll": false,
+        "index": -1,
+        "label": "Pod",
+        "multi": false,
+        "name": "pod",
+        "options": [
+          {
+            "$$hashKey": "object:3094",
+            "selected": true,
+            "text": "au-formula-7f4c649696-zx57t",
+            "value": "au-formula-7f4c649696-zx57t"
+          }
+        ],
+        "query": "label_values(CheckRuleCount, pod)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-1h",
@@ -789,5 +823,5 @@
   "variables": {
     "list": []
   },
-  "version": 12
+  "version": 1
 }
