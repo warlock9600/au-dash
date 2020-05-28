@@ -2,7 +2,6 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:2839",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -16,6 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
+  "id": 35,
+  "iteration": 1590660724375,
   "links": [],
   "panels": [
     {
@@ -27,7 +28,7 @@
       "fill": 3,
       "fillGradient": 8,
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 12,
         "x": 0,
         "y": 0
@@ -115,7 +116,7 @@
       "fill": 3,
       "fillGradient": 8,
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 12,
         "x": 12,
         "y": 0
@@ -209,10 +210,10 @@
       "fill": 3,
       "fillGradient": 8,
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 12,
         "x": 0,
-        "y": 7
+        "y": 6
       },
       "hiddenSeries": false,
       "id": 4,
@@ -297,10 +298,10 @@
       "fill": 3,
       "fillGradient": 8,
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 12,
         "x": 12,
-        "y": 7
+        "y": 6
       },
       "hiddenSeries": false,
       "id": 5,
@@ -385,10 +386,10 @@
       "fill": 3,
       "fillGradient": 3,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 6,
         "x": 0,
-        "y": 14
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 9,
@@ -488,10 +489,10 @@
       "fill": 0,
       "fillGradient": 8,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 6,
         "x": 6,
-        "y": 14
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 11,
@@ -589,10 +590,10 @@
       "fill": 4,
       "fillGradient": 3,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 6,
         "x": 12,
-        "y": 14
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 15,
@@ -678,10 +679,10 @@
       "fill": 0,
       "fillGradient": 8,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 6,
         "x": 18,
-        "y": 14
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 13,
@@ -780,7 +781,6 @@
         "name": "pod",
         "options": [
           {
-            "$$hashKey": "object:3094",
             "selected": true,
             "text": "au-formula-7f4c649696-zx57t",
             "value": "au-formula-7f4c649696-zx57t"
@@ -823,5 +823,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 2
 }

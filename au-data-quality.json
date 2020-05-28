@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1590653307488,
+  "iteration": 1590661320668,
   "links": [],
   "panels": [
     {
@@ -28,7 +28,7 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 12,
         "x": 0,
         "y": 0
@@ -116,7 +116,7 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 14,
+        "h": 12,
         "w": 12,
         "x": 12,
         "y": 0
@@ -204,10 +204,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 7,
+        "h": 6,
         "w": 12,
         "x": 0,
-        "y": 7
+        "y": 6
       },
       "hiddenSeries": false,
       "id": 2,
@@ -292,10 +292,10 @@
       "fill": 3,
       "fillGradient": 3,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 6,
         "x": 0,
-        "y": 14
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 6,
@@ -395,10 +395,10 @@
       "fill": 0,
       "fillGradient": 8,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 6,
         "x": 6,
-        "y": 14
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 9,
@@ -496,10 +496,10 @@
       "fill": 4,
       "fillGradient": 3,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 6,
         "x": 12,
-        "y": 14
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 7,
@@ -585,10 +585,10 @@
       "fill": 0,
       "fillGradient": 8,
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 6,
         "x": 18,
-        "y": 14
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 8,
@@ -674,11 +674,9 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
-          "text": "au-data-quality-5d6fd47d84-fzsqr + au-data-quality-67f6454b8c-wdd64",
+          "text": "All",
           "value": [
-            "au-data-quality-5d6fd47d84-fzsqr",
-            "au-data-quality-67f6454b8c-wdd64"
+            "$__all"
           ]
         },
         "datasource": "Prometheus",
@@ -691,20 +689,14 @@
         "name": "pod",
         "options": [
           {
-            "$$hashKey": "object:1682",
-            "selected": false,
+            "$$hashKey": "object:621",
+            "selected": true,
             "text": "All",
             "value": "$__all"
           },
           {
-            "$$hashKey": "object:1683",
-            "selected": true,
-            "text": "au-data-quality-5d6fd47d84-fzsqr",
-            "value": "au-data-quality-5d6fd47d84-fzsqr"
-          },
-          {
-            "$$hashKey": "object:1684",
-            "selected": true,
+            "$$hashKey": "object:622",
+            "selected": false,
             "text": "au-data-quality-67f6454b8c-wdd64",
             "value": "au-data-quality-67f6454b8c-wdd64"
           }
@@ -746,5 +738,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 2
 }

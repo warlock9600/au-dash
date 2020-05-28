@@ -15,8 +15,8 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
-  "iteration": 1590653622814,
+  "graphTooltip": 1,
+  "iteration": 1590660968604,
   "links": [],
   "panels": [
     {
@@ -535,5 +535,5 @@
   "variables": {
     "list": []
   },
-  "version": 2
+  "version": 1
 }
