@@ -1127,7 +1127,7 @@
           }
         ],
         "query": "label_values(clickhouse_writes_count, pod)",
-        "refresh": 0,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,

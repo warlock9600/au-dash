@@ -702,7 +702,7 @@
           }
         ],
         "query": "label_values(errorCount, pod)",
-        "refresh": 0,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,

@@ -499,7 +499,7 @@
           }
         ],
         "query": "label_values(ws_connections, pod)",
-        "refresh": 0,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
