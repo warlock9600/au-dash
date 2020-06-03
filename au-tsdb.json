@@ -2,6 +2,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:77",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -15,8 +16,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 3,
-  "iteration": 1590652761527,
   "links": [],
   "panels": [
     {
@@ -40,7 +39,7 @@
         "current": false,
         "max": false,
         "min": false,
-        "show": true,
+        "show": false,
         "total": false,
         "values": false
       },
@@ -60,7 +59,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(ctrl_reads_count{pod=~\"$pod\"}[1m])",
+          "expr": "rate(ctrl_reads_count[1m])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -86,6 +85,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1579",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -94,6 +94,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1580",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -128,7 +129,7 @@
         "current": false,
         "max": false,
         "min": false,
-        "show": true,
+        "show": false,
         "total": false,
         "values": false
       },
@@ -148,7 +149,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(ctrl_writes_count{pod=~\"$pod\"}[1m])",
+          "expr": "rate(ctrl_writes_count[1m])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -174,6 +175,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1658",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -182,6 +184,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1659",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -237,7 +240,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum(rate(ctrl_reads_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
+          "expr": "histogram_quantile(0.95, sum(rate(ctrl_reads_bucket[5m])) by (pod,le))",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -305,7 +308,7 @@
         "current": false,
         "max": false,
         "min": false,
-        "show": true,
+        "show": false,
         "total": false,
         "values": false
       },
@@ -326,7 +329,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum(rate(ctrl_writes_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
+          "expr": "histogram_quantile(0.95, sum(rate(ctrl_writes_bucket[5m])) by (pod,le))",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -352,6 +355,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1806",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -360,6 +364,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1807",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -414,7 +419,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(redis_reads_count{pod=~\"$pod\"}[1m])",
+          "expr": "rate(redis_reads_count[1m])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -502,7 +507,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(redis_writes_count{pod=~\"$pod\"}[1m])",
+          "expr": "rate(redis_writes_count[1m])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -591,7 +596,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum(rate(redis_reads_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
+          "expr": "histogram_quantile(0.95, sum(rate(redis_reads_bucket[5m])) by (pod,le))",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -680,7 +685,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum(rate(redis_writes_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
+          "expr": "histogram_quantile(0.95, sum(rate(redis_writes_bucket[5m])) by (pod,le))",
           "hide": false,
           "interval": "",
           "legendFormat": "{{pod}}",
@@ -769,7 +774,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(clickhouse_reads_count{pod=~\"$pod\"}[1m])",
+          "expr": "rate(clickhouse_reads_count[1m])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -857,7 +862,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(clickhouse_writes_count{pod=~\"$pod\"}[1m])",
+          "expr": "rate(clickhouse_writes_count[1m])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -945,7 +950,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum(rate(clickhouse_reads_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
+          "expr": "histogram_quantile(0.95, sum(rate(clickhouse_reads_bucket[5m])) by (pod,le))",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -1036,7 +1041,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum(rate(clickhouse_writes_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
+          "expr": "histogram_quantile(0.95, sum(rate(clickhouse_writes_bucket{}[5m])) by (pod,le))",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -1084,6 +1089,776 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 15
+      },
+      "hiddenSeries": false,
+      "id": 28,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.7.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(redis_values_in[1m])",
+          "interval": "",
+          "legendFormat": "In {{pod}}",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(redis_values_out[1m])",
+          "interval": "",
+          "legendFormat": "Out {{pod}}",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Redis Values Counter",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:176",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:177",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 6,
+        "y": 15
+      },
+      "hiddenSeries": false,
+      "id": 29,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.7.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(db_values_in[1m])",
+          "interval": "",
+          "legendFormat": "In {{pod}}",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(db_values_out[1m])",
+          "interval": "",
+          "legendFormat": "Out {{pod}}",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "DB Values Counter",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:176",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:177",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 15
+      },
+      "hiddenSeries": false,
+      "id": 30,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.7.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(db_rows_in[1m])",
+          "interval": "",
+          "legendFormat": "In {{pod}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "DB Rows Counter",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:176",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:177",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 15
+      },
+      "hiddenSeries": false,
+      "id": 31,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.7.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(errors_400[1m])",
+          "interval": "",
+          "legendFormat": "Error 400 {{pod}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Error 400",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:176",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:177",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 20
+      },
+      "hiddenSeries": false,
+      "id": 25,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.7.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "cpu_user{service=\"au-tsdb\"}",
+          "interval": "",
+          "legendFormat": "CPU user {{pod}}",
+          "refId": "A"
+        },
+        {
+          "expr": "cpu_system{service=\"au-tsdb\"}",
+          "interval": "",
+          "legendFormat": "CPU system {{pod}}",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CPU",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:176",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:177",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 6,
+        "y": 20
+      },
+      "hiddenSeries": false,
+      "id": 26,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.7.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(gc_main_bucket[5m])) by (pod,le))",
+          "interval": "",
+          "legendFormat": "Main by {{pod}}",
+          "refId": "A"
+        },
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(gc_worker_bucket[5m])) by (pod,le))",
+          "interval": "",
+          "legendFormat": "Worker by {{pod}}",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Garbage Collector, ms",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:176",
+          "format": "ms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:177",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 20
+      },
+      "hiddenSeries": false,
+      "id": 27,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.7.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "event_loop_delay_main",
+          "interval": "",
+          "legendFormat": "Main by {{pod}}",
+          "refId": "A"
+        },
+        {
+          "expr": "event_loop_delay_worker",
+          "interval": "",
+          "legendFormat": "Worker by {{pod}}",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Event Loop, ms",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:176",
+          "format": "ms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:177",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 2,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 20
+      },
+      "hiddenSeries": false,
+      "id": 32,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.7.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(errors_500[1m])",
+          "interval": "",
+          "legendFormat": "Error 500 {{pod}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Error 500",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:176",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:177",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": "5s",
@@ -1091,53 +1866,7 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": [
-      {
-        "allValue": null,
-        "current": {
-          "tags": [],
-          "text": "All",
-          "value": [
-            "$__all"
-          ]
-        },
-        "datasource": "Prometheus",
-        "definition": "label_values(clickhouse_writes_count, pod)",
-        "hide": 0,
-        "includeAll": true,
-        "index": -1,
-        "label": "Pod",
-        "multi": true,
-        "name": "pod",
-        "options": [
-          {
-            "selected": true,
-            "text": "All",
-            "value": "$__all"
-          },
-          {
-            "selected": false,
-            "text": "au-tsdb-78fb77d459-qzz22",
-            "value": "au-tsdb-78fb77d459-qzz22"
-          },
-          {
-            "selected": false,
-            "text": "au-tsdb-78fb77d459-tqvsk",
-            "value": "au-tsdb-78fb77d459-tqvsk"
-          }
-        ],
-        "query": "label_values(clickhouse_writes_count, pod)",
-        "refresh": 2,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      }
-    ]
+    "list": []
   },
   "time": {
     "from": "now-1h",
