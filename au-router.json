@@ -2,6 +2,7 @@
   "annotations": {
     "list": [
       {
+        "$$hashKey": "object:266",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -15,8 +16,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 36,
-  "iteration": 1590997065206,
+  "iteration": 1594125903726,
   "links": [],
   "panels": [
     {
@@ -304,7 +304,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Request in DQ processing time, ms",
+      "title": "Request in TSDB processing time, ms",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -320,6 +320,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:349",
           "format": "ms",
           "label": null,
           "logBase": 1,
@@ -328,6 +329,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:350",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -488,25 +490,26 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.95, sum(rate(request_processing_time_in_dq_ms_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
+          "expr": "histogram_quantile(0.95, sum(rate(request_processing_time_in_tsdb_raw_ms_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
           "interval": "",
           "legendFormat": "95 {{pod}}",
           "refId": "A"
         },
         {
-          "expr": "histogram_quantile(0.99, sum(rate(request_processing_time_in_dq_ms_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
+          "expr": "histogram_quantile(0.99, sum(rate(request_processing_time_in_tsdb_raw_ms_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
           "interval": "",
           "legendFormat": "99 {{pod}}",
           "refId": "B"
         },
         {
-          "expr": "histogram_quantile(0.5, sum(rate(request_processing_time_in_dq_ms_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
+          "expr": "histogram_quantile(0.5, sum(rate(request_processing_time_in_tsdb_raw_ms_bucket{pod=~\"$pod\"}[1m])) by (pod,le))",
           "interval": "",
           "legendFormat": "50 {{pod}}",
           "refId": "C"
         },
         {
-          "expr": "(rate(request_processing_time_in_dq_ms_sum{pod=~\"$pod\"}[1m])) / (rate(request_processing_time_in_dq_ms_count{pod=~\"$pod\"}[1m]))",
+          "expr": "(rate(request_processing_time_in_tsdb_raw_ms_sum{pod=~\"$pod\"}[1m])) / (rate(request_processing_time_in_tsdb_raw_ms_count{pod=~\"$pod\"}[1m]))",
+          "hide": false,
           "interval": "",
           "legendFormat": "sum/count by {{pod}}",
           "refId": "D"
@@ -516,7 +519,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Request in DQ processing time, ms",
+      "title": "Request in TSDB raw processing time, ms",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -970,7 +973,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -993,5 +996,5 @@
   "variables": {
     "list": []
   },
-  "version": 15
+  "version": 1
 }
